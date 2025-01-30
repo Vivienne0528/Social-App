@@ -3,12 +3,13 @@ import React from 'react'
 import DesktopNavbar from './DesktopNavbar'
 import MobileNavbar from './MobileNavbar'
 import { currentUser } from '@clerk/nextjs/server'
+import { syncUser } from '@/actions/user.actions'
 
 async function Navbar() {
     // currentUser function is from clerk
     const user = await currentUser()
     // if we have this user
-    //if (user) await syncUser()
+    if (user) await syncUser()
 
     return (
         <nav className="sticky top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50">
